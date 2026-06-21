@@ -1,11 +1,13 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+// SharedPreferences no longer needed; using Firestore for persistence
 import '../../data/models/content_calendar_model.dart';
 import '../../data/services/planner_api_service.dart';
+import '../../data/services/firestore_service.dart';
 
 class PlannerViewModel extends ChangeNotifier {
   final PlannerApiService _apiService;
+  final FirestoreCalendarService _firestoreService = FirestoreCalendarService();
   
   List<ContentCalendarModel> _savedCalendars = [];
   ContentCalendarModel? _activeCalendar;
@@ -23,37 +25,28 @@ class PlannerViewModel extends ChangeNotifier {
 
   Future<void> loadSavedCalendars() async {
     try {
-      final prefs = await SharedPreferences.getInstance();
-      final calendarData = prefs.getStringList('reeliq_saved_calendars') ?? [];
-      
-      _savedCalendars = calendarData
-          .map((item) => ContentCalendarModel.fromJson(json.decode(item) as Map<String, dynamic>))
-          .toList()
-        ..sort((a, b) => b.createdAt.compareTo(a.createdAt));
-        
+      final calendars = await _firestoreService.fetchCalendars();
+      _savedCalendars = calendars;
       if (_savedCalendars.isNotEmpty && _activeCalendar == null) {
         _activeCalendar = _savedCalendars.first;
       }
       notifyListeners();
     } catch (e) {
-      debugPrint('ReelIQ: Failed to load saved calendars: $e');
+      debugPrint('ReelIQ: Failed to load saved calendars from Firestore: $e');
     }
   }
 
-  Future<void> saveCalendarLocally(ContentCalendarModel calendar) async {
+  Future<void> saveCalendar(ContentCalendarModel calendar) async {
     try {
-      final prefs = await SharedPreferences.getInstance();
-      
-      // Check if calendar already exists
+      // Save to Firestore
+      await _firestoreService.saveCalendar(calendar);
+      // Update local list
       final index = _savedCalendars.indexWhere((c) => c.id == calendar.id);
       if (index != -1) {
         _savedCalendars[index] = calendar;
       } else {
         _savedCalendars.insert(0, calendar);
       }
-      
-      final stringList = _savedCalendars.map((c) => json.encode(c.toJson())).toList();
-      await prefs.setStringList('reeliq_saved_calendars', stringList);
       _activeCalendar = calendar;
       notifyListeners();
     } catch (e) {
@@ -63,12 +56,8 @@ class PlannerViewModel extends ChangeNotifier {
 
   Future<void> deleteCalendar(String id) async {
     try {
-      final prefs = await SharedPreferences.getInstance();
+      await _firestoreService.deleteCalendar(id);
       _savedCalendars.removeWhere((c) => c.id == id);
-      
-      final stringList = _savedCalendars.map((c) => json.encode(c.toJson())).toList();
-      await prefs.setStringList('reeliq_saved_calendars', stringList);
-      
       if (_activeCalendar?.id == id) {
         _activeCalendar = _savedCalendars.isNotEmpty ? _savedCalendars.first : null;
       }
@@ -97,7 +86,7 @@ class PlannerViewModel extends ChangeNotifier {
       );
 
       if (calendar != null) {
-        await saveCalendarLocally(calendar);
+        await saveCalendar(calendar);
         return calendar;
       } else {
         _errorMessage = 'Could not generate calendar. Please try again.';
