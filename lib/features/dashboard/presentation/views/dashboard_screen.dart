@@ -545,36 +545,27 @@ class _HeroCard extends StatelessWidget {
                 const SizedBox(width: 14),
 
                 // Name + handle
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        user.displayName.isNotEmpty ? user.displayName : 'Creator',
-                        style: const TextStyle(
-                          color: Color(0xFFF8FAFC),
-                          fontSize: 19,
-                          fontWeight: FontWeight.w800,
-                          letterSpacing: -0.5,
-                          height: 1.1,
-                        ),
-                      ),
-                      if (user.instagramHandle.isNotEmpty) ...[
-                        const SizedBox(height: 2),
-                        Text(
-                          user.instagramHandle.startsWith('@')
-                              ? user.instagramHandle
-                              : '@${user.instagramHandle}',
-                          style: const TextStyle(
-                            color: Color(0xFF4A4A4A),
-                            fontSize: 13,
-                            fontWeight: FontWeight.w500,
+                        // Only show @handle
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              if (user.instagramHandle.isNotEmpty) ...[
+                                const SizedBox(height: 2),
+                                Text(
+                                  user.instagramHandle.startsWith('@')
+                                      ? user.instagramHandle
+                                      : '@${user.instagramHandle}',
+                                  style: const TextStyle(
+                                    color: Color(0xFF4A4A4A),
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ],
                           ),
                         ),
-                      ],
-                    ],
-                  ),
-                ),
 
                 // Streak + Ask AI pill
                 Column(
@@ -691,38 +682,7 @@ class _HeroCard extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(14, 14, 14, 0),
             child: Column(
               children: [
-                // First row: Followers, Engagement, Niche
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF111111),
-                    borderRadius: BorderRadius.circular(14),
-                    border: Border.all(color: const Color(0xFF1C1C1C), width: 0.5),
-                  ),
-                  child: Row(
-                    children: [
-                      _MetricCell(
-                        label: 'Followers',
-                        value: formatFollowers(user.followersCount),
-                        color: AppTheme.primary,
-                      ),
-                      _VDiv(),
-                      _MetricCell(
-                        label: 'Engagement',
-                        value: '${user.engagementRate.toStringAsFixed(1)}%',
-                        color: const Color(0xFF10B981),
-                      ),
-                      _VDiv(),
-                      _MetricCell(
-                        label: 'Niche',
-                        value: user.niche.isNotEmpty ? user.niche : '—',
-                        color: AppTheme.accent,
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 8),
-                // Second row: Posts, Reels, Following
+                // Unified metric row: Posts, Reels, Followers, Following
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   decoration: BoxDecoration(
@@ -745,6 +705,12 @@ class _HeroCard extends StatelessWidget {
                       ),
                       _VDiv(),
                       _MetricCell(
+                        label: 'Followers',
+                        value: formatFollowers(user.followersCount),
+                        color: AppTheme.primary,
+                      ),
+                      _VDiv(),
+                      _MetricCell(
                         label: 'Following',
                         value: formatFollowers(user.followingCount),
                         color: const Color(0xFFF59E0B),
@@ -756,7 +722,7 @@ class _HeroCard extends StatelessWidget {
             ),
           ),
 
-          // ── AI Creator Summary ──────────────────────────────────────────────
+          // ── Creator Performance Score ───────────────────────────────────────
           Padding(
             padding: const EdgeInsets.fromLTRB(18, 14, 18, 18),
             child: Column(
@@ -767,13 +733,16 @@ class _HeroCard extends StatelessWidget {
                     Container(width: 4, height: 4,
                         decoration: const BoxDecoration(color: AppTheme.primary, shape: BoxShape.circle)),
                     const SizedBox(width: 6),
-                    const Text(
-                      'AI CREATOR SUMMARY',
-                      style: TextStyle(
-                        color: AppTheme.primary,
-                        fontSize: 9,
-                        fontWeight: FontWeight.w800,
-                        letterSpacing: 1.4,
+                    Tooltip(
+                      message: 'Creator Performance Score: AI‑generated evaluation of your overall creator health, based on followers, engagement, posting frequency, and reel performance.',
+                      child: const Text(
+                        'CREATOR PERFORMANCE SCORE',
+                        style: TextStyle(
+                          color: AppTheme.primary,
+                          fontSize: 9,
+                          fontWeight: FontWeight.w800,
+                          letterSpacing: 1.4,
+                        ),
                       ),
                     ),
                   ],
