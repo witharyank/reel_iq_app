@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/foundation.dart';
 
 class EnvConfig {
@@ -12,10 +11,11 @@ class EnvConfig {
     }
 
     // Development URLs
-    if (kIsWeb) return 'http://127.0.0.1:8000';
-    if (Platform.isAndroid) {
-      return 'http://10.0.2.2:8000';
+    if (kIsWeb) return 'http://192.168.0.119:8000';
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      // 10.0.2.2 works for Android Emulator, but 192.168.0.119 works for real devices on LAN
+      return 'http://192.168.0.119:8000';
     }
-    return 'http://127.0.0.1:8000';
+    return 'http://192.168.0.119:8000';
   }
 }

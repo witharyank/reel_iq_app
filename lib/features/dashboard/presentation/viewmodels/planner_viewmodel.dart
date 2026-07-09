@@ -10,6 +10,7 @@ class PlannerViewModel extends ChangeNotifier {
   List<ContentCalendarModel> _savedCalendars = [];
   ContentCalendarModel? _activeCalendar;
   bool _isLoading = false;
+  String _loadingStage = '';
   String? _errorMessage;
 
   PlannerViewModel(this._apiService) {
@@ -19,6 +20,7 @@ class PlannerViewModel extends ChangeNotifier {
   List<ContentCalendarModel> get savedCalendars => _savedCalendars;
   ContentCalendarModel? get activeCalendar => _activeCalendar;
   bool get isLoading => _isLoading;
+  String get loadingStage => _loadingStage;
   String? get errorMessage => _errorMessage;
 
   Future<void> loadSavedCalendars() async {
@@ -85,6 +87,7 @@ class PlannerViewModel extends ChangeNotifier {
     required String frequency,
   }) async {
     _isLoading = true;
+    _loadingStage = 'Initializing strategy engine...';
     _errorMessage = null;
     notifyListeners();
 
@@ -94,6 +97,10 @@ class PlannerViewModel extends ChangeNotifier {
         audience: audience,
         goal: goal,
         frequency: frequency,
+        onProgress: (stage) {
+          _loadingStage = stage;
+          notifyListeners();
+        },
       );
 
       if (calendar != null) {

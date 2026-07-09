@@ -31,6 +31,12 @@ ReelIQ is a comprehensive, AI-powered Instagram Reel optimization platform built
 ### 7. User Profile Management
 - **Creator Profile:** View personal user telemetry, manage account settings, and access support features through embedded webviews and URL launchers.
 
+### 8. AI Creator Copilot (Premium Strategy Engine)
+- **Multi-Stage Generation:** Generates comprehensive 7, 30, or 90 day content plans including weekly growth roadmaps, hooks, captions, and checklists.
+- **Dynamic Memory:** The pipeline retains context across sequential generation steps to ensure zero duplicated ideas or hooks across an entire campaign.
+- **Strategy Decks:** Automatically exports professional, consulting-grade PDF strategy documents (including gap analyses and KPI tables) directly from the backend.
+- **Live Streaming:** Real-time generation progress updates piped directly to the UI via Server-Sent Events (SSE).
+
 ---
 
 ## Technology Stack & Dependencies
@@ -61,6 +67,11 @@ ReelIQ is a comprehensive, AI-powered Instagram Reel optimization platform built
 - `shared_preferences` (Local key-value storage)
 - `in_app_purchase` & `razorpay_flutter` (Monetization gateways)
 - `webview_flutter` & `url_launcher` (Web and external link handling)
+
+**Backend Architecture (Python/FastAPI):**
+- `fastapi` & `uvicorn` (Asynchronous HTTP server and SSE streaming endpoints)
+- `groq` (High-speed LLM orchestration using Llama 3.3)
+- `reportlab` (Server-side PDF generation)
 
 ---
 
@@ -103,6 +114,25 @@ lib/
 4. **Enable Authentication Methods**: Email/Password and Google Sign-in.
 5. **Setup Firestore**: Create a `reels` collection with appropriate read/write security rules.
 6. **Setup Storage**: Allow reading and writing access to the `reels/` bucket.
+
+### Running the FastAPI Microservice:
+
+The AI Creator Copilot relies on a local FastAPI server for LLM orchestration and PDF generation.
+
+1. **Navigate to the backend directory:**
+   ```bash
+   cd backend
+   ```
+2. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Set your environment variables:**
+   Create a `.env` file containing your `GROQ_API_KEY`.
+4. **Run the server:**
+   ```bash
+   uvicorn main:app --host 0.0.0.0 --port 8000
+   ```
 
 ---
 

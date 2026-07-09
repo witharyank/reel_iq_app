@@ -1,24 +1,16 @@
 import 'dart:convert';
 import 'dart:math';
-import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import '../../../../core/services/firestore_service.dart';
 import '../../data/models/creator_report_model.dart';
 
+import '../../../../core/config/env_config.dart';
+
 class ReportGeneratorService {
   final FirestoreService _firestoreService;
   
-  // Set this to true if testing on Android Emulator, false if testing on physical Android device
-  static const bool _isEmulator = false;
-  
-  static String get _backendBase {
-    if (kIsWeb) return 'http://127.0.0.1:8000';
-    if (Platform.isAndroid) {
-      return _isEmulator ? 'http://10.0.2.2:8000' : 'http://192.168.29.25:8000';
-    }
-    return 'http://127.0.0.1:8000';
-  }
+  static String get _backendBase => EnvConfig.baseUrl;
 
   ReportGeneratorService(this._firestoreService);
 

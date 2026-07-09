@@ -1,0 +1,249 @@
+{
+  "id": "cal_4",
+  "monthlyGoal": "Sell 50 Fitness Coaching Courses to Busy Moms within the next 30 days",
+  "monthlyKPIs": [
+    "Increase Instagram followers by 20%",
+    "Boost engagement rate by 30%",
+    "Drive 1000 unique visitors to the course sales page"
+  ],
+  "contentGapAnalysis": {
+    "missingInNiche": "Time-efficient workout routines for busy moms with limited equipment",
+    "opportunity": "Partnering with mommy influencers and bloggers to promote the course",
+    "competitorWeakness": "Lack of personalized coaching and support for busy moms in existing fitness programs"
+  },
+  "contentMixBreakdown": {
+    "educational": 40,
+    "entertaining": 30,
+    "promotional": 30
+  },
+  "platformDistribution": {
+    "instagram": 60,
+    "facebook": 20,
+    "emailMarketing": 10,
+    "tiktok": 10
+  },
+  "niche": "Fitness Coaching",
+  "audience": "Busy Moms",
+  "goal": "Sell Course",
+  "frequency": "3 Reels per week",
+  "weeks": [
+    {
+      "weekNumber": 1,
+      "weeklyGoal": "Establish brand awareness and build trust with busy moms",
+      "weeklyKPIs": [
+        "Increase Instagram followers by 5%",
+        "Reach 250 unique visitors to the course sales page",
+        "Boost engagement rate by 10%"
+      ],
+      "weeklyStrategy": "Create and share valuable content (workout tips, mom-friendly exercises, and healthy recipes) on Instagram and Facebook, leveraging relevant hashtags and tagging mommy influencers",
+      "growthCoach": {
+        "improve": "Content creation efficiency to meet the weekly content mix breakdown",
+        "stop": "Using overly promotional language in social media posts",
+        "trendSuggestion": "Utilize Instagram Reels and IGTV for sharing quick workout routines and testimonials from satisfied clients"
+      }
+    }
+  ],
+  "days": [
+    {
+      "title": "Monday Motivation",
+      "dailyObjective": "Establish brand awareness and build trust with busy moms",
+      "funnelStage": "Top",
+      "contentPillar": "Fitness Tips",
+      "contentFormat": "Reel",
+      "platform": "Instagram",
+      "targetAudience": "Busy Moms",
+      "psychologyUsed": "Social Proof",
+      "whyThisWorks": "Busy moms are more likely to trust a fitness coach who has helped others achieve their goals",
+      "emotionTriggered": "Motivation",
+      "hook": "Get fit in just 10 minutes a day!",
+      "alternativeHooks": [
+        "Transform your body in no time!",
+        "Say goodbye to mom-guilt and hello to a healthier you!"
+      ],
+      "fullScript": "Hi busy moms! Are you struggling to find time for a workout? I've got you covered! In this reel, I'll be sharing my top 3 quick and effective exercises that you can do in just 10 minutes a day. From squats to lunges, these exercises will help you get fit and feel amazing. Trust me, I've been there too! As a busy mom myself, I know how hard it can be to prioritize your own health and fitness. But with these simple exercises, you can get started today and see real results. So, who's ready to get fit and feel amazing? #fitnessmotivation #busymoms #quickworkouts",
+      "bRollSuggestions": "Footage of busy moms exercising, playing with their kids, and enjoying healthy meals",
+      "cameraAngles": "Close-up shots of the exercises, wide shots of the busy mom working out",
+      "shotList": "Introduction, exercise demonstrations, testimonials from satisfied clients",
+      "textOverlayTimeline": "0s-3s: Introduction, 4s-6s: Exercise 1, 7s-9s: Exercise 2, 10s-12s: Exercise 3",
+      "editingInstructions": "Add upbeat background music, use transitions to make the reel engaging",
+      "musicSuggestions": "Upbeat and energetic music, such as 'Can't Stop' by Red Hot Chili Peppers",
+      "caption": "Get fit in just 10 minutes a day! Join our community of busy moms who are transforming their bodies and taking control of their health. #fitnessjourney #busymoms #healthyliving",
+      "alternativeCaptions": [
+        "Ready to get fit and feel amazing? Join our fitness community today!",
+        "Say goodbye to mom-guilt and hello to a healthier you! #fitnessmotivation #busymoms"
+      ],
+      "cta": "Join our community today and get started on your fitness journey!",
+      "alternativeCTAs": [
+        "Sign up for our free fitness consultation",
+        "Download our free fitness guide for busy moms"
+      ],
+      "hashtags": "#fitnessmotivation #busymoms #quickworkouts #healthyliving",
+      "thumbnailIdea": "A busy mom exercising with her kids in the background",
+      "thumbnailText": "Get fit in 10 minutes a day!",
+      "postingTime": "8:00 AM",
+      "difficulty": "Medium",
+      "estimatedCreationTime": "45 mins",
+      "expectedEngagement": "High",
+      "reachEstimate": "10k-50k",
+      "viralityPotential": 85,
+      "preProductionChecklist": [
+        "Write script",
+        "Gather props"
+      ],
+      "shootChecklist": [
+        "Check lighting",
+        "Record A-roll"
+      ],
+      "editChecklist": [
+        "Cut dead air",
+        "Add captions"
+      ],
+      "uploadChecklist": [
+        "Write caption",
+        "Add tags"
+      ],
+      "day": 1,
+      "weekNumber": 1,
+      "bestPostingTime": "12:00 PM",
+      "confidenceScore": 85,
+      "roiEstimate": "Brand Awareness",
+      "repurposeSuggestions": "Post to TikTok and YouTube Shorts",
+      "successMetrics": "Views, Shares, Saves",
+      "idea": "Hi busy moms! Are you struggling to find time for a workout? I've got you covered! In this reel, I'll be sharing my top 3 quick and effective exercises that you can do in just 10 minutes a day. From squats to lunges, these exercises will help you get fit and feel amazing. Trust me, I've been there too! As a busy mom myself, I know how hard it can be to prioritize your own health and fitness. But with these simple exercises, you can get started today and see real results. So, who's ready to get fit and feel amazing? #fitnessmotivation #busymoms #quickworkouts"
+    },
+    {
+      "title": "Wednesday Wisdom",
+      "dailyObjective": "Provide valuable content and build trust with busy moms",
+      "funnelStage": "Middle",
+      "contentPillar": "Healthy Recipes",
+      "contentFormat": "Carousel",
+      "platform": "Facebook",
+      "targetAudience": "Busy Moms",
+      "psychologyUsed": "Reciprocity",
+      "whyThisWorks": "Busy moms are more likely to trust a fitness coach who provides valuable and relevant content",
+      "emotionTriggered": "Gratitude",
+      "hook": "Get instant access to our top 5 healthy recipes for busy moms!",
+      "alternativeHooks": [
+        "Transform your mealtime with our quick and easy recipes!",
+        "Say goodbye to meal prep stress and hello to healthy eating!"
+      ],
+      "fullScript": "Hey busy moms! Are you tired of spending hours in the kitchen, only to end up with a meal that's not healthy or delicious? I've got you covered! In this carousel, I'll be sharing my top 5 healthy recipes that are perfect for busy moms like you. From quick and easy breakfast ideas to nutritious dinner options, these recipes will help you fuel your body and nourish your family. And the best part? They're all easy to make and require minimal ingredients! So, who's ready to transform their mealtime and start cooking healthy? #healthyliving #busymoms #mealprep",
+      "bRollSuggestions": "Footage of healthy meals, busy moms cooking, and kids enjoying healthy food",
+      "cameraAngles": "Close-up shots of the meals, wide shots of the busy mom cooking",
+      "shotList": "Introduction, recipe demonstrations, testimonials from satisfied clients",
+      "textOverlayTimeline": "0s-3s: Introduction, 4s-6s: Recipe 1, 7s-9s: Recipe 2, 10s-12s: Recipe 3",
+      "editingInstructions": "Add background music, use transitions to make the carousel engaging",
+      "musicSuggestions": "Upbeat and energetic music, such as 'Happy' by Pharrell Williams",
+      "caption": "Get instant access to our top 5 healthy recipes for busy moms! Join our community today and start cooking healthy! #healthyliving #busymoms #mealprep",
+      "alternativeCaptions": [
+        "Transform your mealtime with our quick and easy recipes! #healthyliving #busymoms",
+        "Say goodbye to meal prep stress and hello to healthy eating! #mealprep #busymoms"
+      ],
+      "cta": "Join our community today and get instant access to our top 5 healthy recipes!",
+      "alternativeCTAs": [
+        "Download our free healthy recipe guide",
+        "Sign up for our meal prep consultation"
+      ],
+      "hashtags": "#healthyliving #busymoms #mealprep #healthyrecipes",
+      "thumbnailIdea": "A busy mom cooking a healthy meal with her kids",
+      "thumbnailText": "Get instant access to our top 5 healthy recipes!",
+      "postingTime": "12:00 PM",
+      "difficulty": "Medium",
+      "estimatedCreationTime": "45 mins",
+      "expectedEngagement": "High",
+      "reachEstimate": "10k-50k",
+      "viralityPotential": 80,
+      "preProductionChecklist": [
+        "Write script",
+        "Gather props"
+      ],
+      "shootChecklist": [
+        "Check lighting",
+        "Record A-roll"
+      ],
+      "editChecklist": [
+        "Cut dead air",
+        "Add captions"
+      ],
+      "uploadChecklist": [
+        "Write caption",
+        "Add tags"
+      ],
+      "day": 2,
+      "weekNumber": 1,
+      "bestPostingTime": "12:00 PM",
+      "confidenceScore": 80,
+      "roiEstimate": "Brand Awareness",
+      "repurposeSuggestions": "Post to TikTok and YouTube Shorts",
+      "successMetrics": "Views, Shares, Saves",
+      "idea": "Hey busy moms! Are you tired of spending hours in the kitchen, only to end up with a meal that's not healthy or delicious? I've got you covered! In this carousel, I'll be sharing my top 5 healthy recipes that are perfect for busy moms like you. From quick and easy breakfast ideas to nutritious dinner options, these recipes will help you fuel your body and nourish your family. And the best part? They're all easy to make and require minimal ingredients! So, who's ready to transform their mealtime and start cooking healthy? #healthyliving #busymoms #mealprep"
+    },
+    {
+      "title": "Friday Feature",
+      "dailyObjective": "Build trust and establish authority with busy moms",
+      "funnelStage": "Bottom",
+      "contentPillar": "Testimonials",
+      "contentFormat": "Story",
+      "platform": "Instagram",
+      "targetAudience": "Busy Moms",
+      "psychologyUsed": "Social Identity",
+      "whyThisWorks": "Busy moms are more likely to trust a fitness coach who has helped others achieve their goals",
+      "emotionTriggered": "Inspiration",
+      "hook": "Real moms, real results! Hear from our satisfied clients who have transformed their bodies and lives!",
+      "alternativeHooks": [
+        "From mom-bod to fit-bod: Hear from our successful clients!",
+        "Get inspired by our clients' fitness journeys and start your own today!"
+      ],
+      "fullScript": "Hey busy moms! Are you looking for a fitness program that really works? Look no further! In this story, I'll be sharing testimonials from our satisfied clients who have achieved amazing results with our program. From weight loss to increased energy, our clients have seen real transformations in their bodies and lives. And the best part? They're just like you - busy moms who want to get fit and feel amazing! So, who's ready to get inspired and start their own fitness journey? #fitnessjourney #busymoms #testimonials",
+      "bRollSuggestions": "Footage of busy moms exercising, before-and-after photos, and testimonials from satisfied clients",
+      "cameraAngles": "Close-up shots of the testimonials, wide shots of the busy mom exercising",
+      "shotList": "Introduction, testimonials, call-to-action",
+      "textOverlayTimeline": "0s-3s: Introduction, 4s-6s: Testimonial 1, 7s-9s: Testimonial 2",
+      "editingInstructions": "Add background music, use transitions to make the story engaging",
+      "musicSuggestions": "Inspirational music, such as 'Unstoppable' by Sia",
+      "caption": "Real moms, real results! Hear from our satisfied clients who have transformed their bodies and lives! Join our community today and start your own fitness journey! #fitnessjourney #busymoms #testimonials",
+      "alternativeCaptions": [
+        "From mom-bod to fit-bod: Hear from our successful clients and get inspired to start your own fitness journey!",
+        "Get inspired by our clients' fitness journeys and start your own today! #fitnessmotivation #busymoms"
+      ],
+      "cta": "Join our community today and start your own fitness journey!",
+      "alternativeCTAs": [
+        "Sign up for our free fitness consultation",
+        "Download our free fitness guide for busy moms"
+      ],
+      "hashtags": "#fitnessjourney #busymoms #testimonials #fitnessmotivation",
+      "thumbnailIdea": "A busy mom exercising with a testimonial quote overlay",
+      "thumbnailText": "Real moms, real results!",
+      "postingTime": "4:00 PM",
+      "difficulty": "Medium",
+      "estimatedCreationTime": "45 mins",
+      "expectedEngagement": "High",
+      "reachEstimate": "10k-50k",
+      "viralityPotential": 90,
+      "preProductionChecklist": [
+        "Write script",
+        "Gather props"
+      ],
+      "shootChecklist": [
+        "Check lighting",
+        "Record A-roll"
+      ],
+      "editChecklist": [
+        "Cut dead air",
+        "Add captions"
+      ],
+      "uploadChecklist": [
+        "Write caption",
+        "Add tags"
+      ],
+      "day": 3,
+      "weekNumber": 1,
+      "bestPostingTime": "12:00 PM",
+      "confidenceScore": 90,
+      "roiEstimate": "Brand Awareness",
+      "repurposeSuggestions": "Post to TikTok and YouTube Shorts",
+      "successMetrics": "Views, Shares, Saves",
+      "idea": "Hey busy moms! Are you looking for a fitness program that really works? Look no further! In this story, I'll be sharing testimonials from our satisfied clients who have achieved amazing results with our program. From weight loss to increased energy, our clients have seen real transformations in their bodies and lives. And the best part? They're just like you - busy moms who want to get fit and feel amazing! So, who's ready to get inspired and start their own fitness journey? #fitnessjourney #busymoms #testimonials"
+    }
+  ]
+}

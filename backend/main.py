@@ -4,6 +4,9 @@ import uuid
 import subprocess
 from typing import List, Dict, Any, Optional
 from fastapi import FastAPI, File, UploadFile, Form, HTTPException, Query, Response, Request, Header
+from fastapi.responses import StreamingResponse
+import asyncio
+import json
 from fastapi.middleware.cors import CORSMiddleware
 import firebase_admin
 from firebase_admin import credentials, firestore
@@ -33,6 +36,8 @@ if os.path.exists(winget_packages_dir):
 from ai_service import AIService
 from instagram_service import InstagramService
 from payment_service import PaymentService
+from planner_engine import PlannerEngine
+from pdf_generator import PDFGenerator
 
 # Initialize Firebase Admin
 firebase_creds_path = os.getenv("FIREBASE_SERVICE_ACCOUNT_PATH", "./serviceAccountKey.json")
@@ -306,18 +311,42 @@ async def generate_insights(req: InsightsRequest):
 @app.post("/generate-calendar")
 async def generate_calendar(req: CalendarRequest):
     """
-    Generate a 30-day content calendar based on niche, audience, goal, and frequency.
+    Generate a 30-day content calendar using the multi-stage PlannerEngine.
+    This endpoint uses Server-Sent Events (SSE) to stream progress updates back to the client.
     """
-    try:
-        calendar = ai_service.generate_content_calendar(
-            niche=req.niche,
-            audience=req.audience,
-            goal=req.goal,
-            frequency=req.frequency
-        )
-        return calendar
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Calendar generation failed: {e}")
+    planner_engine = PlannerEngine(api_key=os.getenv("GROQ_API_KEY"))
+    pdf_generator = PDFGenerator()
+    
+    # We use an asyncio.Queue to stream messages from the engine
+    q = asyncio.Queue()
+    
+    async def progress_callback(message: str):
+        await q.put({"status": "progress", "message": message})
+        
+    async def run_planner():
+        try:
+            result = await planner_engine.run_pipeline(req.dict(), progress_callback)
+            
+            await progress_callback("Generating strategy PDF...")
+            pdf_path = pdf_generator.generate_strategy_pdf(result)
+            result['pdf_path'] = pdf_path
+            
+            await q.put({"status": "complete", "data": result})
+        except Exception as e:
+            await q.put({"status": "error", "message": str(e)})
+        finally:
+            await q.put(None) # EOF marker
+            
+    async def event_generator():
+        # Start the background task
+        task = asyncio.create_task(run_planner())
+        while True:
+            item = await q.get()
+            if item is None:
+                break
+            yield f"data: {json.dumps(item)}\n\n"
+            
+    return StreamingResponse(event_generator(), media_type="text/event-stream")
 
 @app.post("/analyze-reel")
 async def analyze_reel(file: UploadFile = File(...), title: str = Form("")):
@@ -804,4 +833,5 @@ async def razorpay_webhook(request: Request, x_razorpay_signature: str = Header(
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    # Changed from 127.0.0.1 to 0.0.0.0 to allow LAN access from iPad/Mobile
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
