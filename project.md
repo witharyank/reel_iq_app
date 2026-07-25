@@ -62,4 +62,4 @@ The FastAPI backend exposes the following key endpoints:
   - `ai_service.py` - Handles communication with Groq LLM.
   - `instagram_service.py` - Interacts with Instagram Graph API.
   - `payment_service.py` - Manages Razorpay subscriptions and webhooks.
-  - `/backend/temp_data/` - Temporary storage for video/audio files during processing.
+  - `/backend/temp_data/` - Temporary storage for video and audio files during processing.
