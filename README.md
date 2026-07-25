@@ -157,3 +157,4 @@ To run locally on a connected emulator, simulator, or desktop target:
    ```bash
    flutter run
    ```
+Can be used in ios as well as android with full seamless experience
